@@ -1,7 +1,7 @@
 SRS Documentation
 ======================
 
-.. list-table:: **FR-DA**
+.. list-table:: **Project Information**
    :widths: 15 10
    :header-rows: 0
   
