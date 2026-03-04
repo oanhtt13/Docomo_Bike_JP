@@ -178,8 +178,7 @@ FR-LW-2: Warning Notification
 
        スマートフォンアプリ起動済み。
    * - Postconditions
-
-       ハードウェアアプリおよびスマートフォンアプリにログを保存する。
+     - ハードウェアアプリおよびスマートフォンアプリにログを保存する。
 
        音声通知が正常に再生される。
 
@@ -239,7 +238,8 @@ FR-CL-1: Image Handling
      - Detail
    * - Description
      - AI Unitが画像を撮影し、ADB interfaceを通じてAndroidアプリへ送信する。
-     - Androidアプリは保存前に顔をぼかす。
+
+       Androidアプリは保存前に顔をぼかす。
    * - Input
      - AI Unitのカメラで取得した画像。
    * - Output
@@ -259,7 +259,7 @@ FR-CL-1: Image Handling
 
        ぼかし処理済み画像を保存する。
 
-      AI Unit側画像を削除する。
+       AI Unit側画像を削除する。
 
 .. list-table:: **Business Flow**
    :widths: 15 30 30
@@ -340,8 +340,7 @@ FR-CC: Connection Checking
    * - Preconditions
      - デバイスに十分な電源が供給されている。
 
-   必須: AI UnitはUSB Type-Cポートを備えている必要がある。Android Type-Cと接続し、ADB Interfaceで情報取得可能であること。
-     （他ポート対応する場合、AI Unit側も対応が必要）
+       必須: AI UnitはUSB Type-Cポートを備えている必要がある。Android Type-Cと接続し、ADB Interfaceで情報取得可能であること.（他ポート対応する場合、AI Unit側も対応が必要）
    * - Postconditions
      - プログラムログを保存する。
 
