@@ -3,7 +3,7 @@ SRS Documentation
 
 .. list-table:: **Project Information**
    :widths: 15 10
-   :header-rows: 0
+   :header-rows: 1
   
   * - Project Name
     - Docomo_Bike
