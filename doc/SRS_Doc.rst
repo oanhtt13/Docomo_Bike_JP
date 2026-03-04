@@ -1,6 +1,21 @@
 SRS Documentation
 ======================
 
+.. list-table:: **FR-DA**
+   :widths: 15 10
+   :header-rows: 0
+  
+  * - Project Name
+    - Docomo_Bike
+  * - Author
+    - HBLAB Team
+  * - Date
+    - 2024-06-30
+  * - Version
+    - 1.0
+  * - Status
+    - Draft
+
 Introduction
 --------------
 
