@@ -5,16 +5,16 @@ SRS Documentation
    :widths: 15 10
    :header-rows: 1
   
-  * - Project Name
-    - Docomo_Bike
-  * - Author
-    - HBLAB Team
-  * - Date
-    - 2024-06-30
-  * - Version
-    - 1.0
-  * - Status
-    - Draft
+   * - Project Name
+     - Docomo_Bike
+   * - Author
+     - HBLAB Team
+   * - Date
+     - 2024-06-30
+   * - Version
+     - 1.0
+   * - Status
+     - Draft
 
 Introduction
 --------------
