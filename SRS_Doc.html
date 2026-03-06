@@ -1,0 +1,731 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SRS Documentation &mdash; Docomo Bike 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/lang.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="UX/UI Design" href="UIUX.html" />
+    <link rel="prev" title="Welcome to the documentation of the SRS for the project!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Docomo Bike
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SRS Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scope">Scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#in-scope">In-Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#out-of-scope">Out-of-Scope</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#overall-description">Overall Description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#constraints">Constraints</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functional-requirements">Functional Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fr-da-device-application">FR-DA: Device Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fr-lw-location-warning">FR-LW: Location Warning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fr-lw-1-location-detection">FR-LW-1: Location Detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fr-lw-2-warning-notification">FR-LW-2: Warning Notification</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#fr-cl-clear-sensitive-information">FR-CL: Clear Sensitive Information</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fr-cl-1-image-handling">FR-CL-1: Image Handling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fr-cl-2-clear-sensitive-info">FR-CL-2: Clear Sensitive Info</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#fr-cc-connection-checking">FR-CC: Connection Checking</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#non-function-requirement">Non-Function Requirement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#appendix">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UX/UI Design</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Docomo Bike</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">SRS Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/SRS_Doc.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="srs-documentation">
+<h1>SRS Documentation<a class="headerlink" href="#srs-documentation" title="Link to this heading"></a></h1>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text"><strong>Project Information</strong></span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 60.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Project Name</p></th>
+<th class="head"><p>Docomo_Bike</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Author</p></td>
+<td><p>HBLAB Team</p></td>
+</tr>
+<tr class="row-odd"><td><p>Date</p></td>
+<td><p>2026-04-03</p></td>
+</tr>
+<tr class="row-even"><td><p>Version</p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Status</p></td>
+<td><p>Draft</p></td>
+</tr>
+</tbody>
+</table>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>AI UnitおよびAndroidアプリを開発し、自転車の走行位置を検知してユーザーへ警告を行うシステムを構築する。
+これにより、自転車利用者の意識向上を図る。</p>
+<p>本システムは以下を含む：</p>
+<ul class="simple">
+<li><p>顧客提供ハードウェア上で動作するアプリケーション。</p></li>
+<li><p>Androidスマートフォンアプリ。</p></li>
+</ul>
+</section>
+<section id="scope">
+<h2>Scope<a class="headerlink" href="#scope" title="Link to this heading"></a></h2>
+<section id="in-scope">
+<h3>In-Scope<a class="headerlink" href="#in-scope" title="Link to this heading"></a></h3>
+<p>歩道走行を検知した際にユーザーへ警告を行うスマートフォンアプリを開発する。
+Phase 2では、Androidアプリの開発および既存AI Unitとの連携を行う。</p>
+<p>主な機能：</p>
+<ul class="simple">
+<li><p>自転車の走行位置を判定し、減速警告を発する。</p></li>
+<li><p>デバイスとスマートフォン間の接続確認。</p></li>
+<li><p>AI Unitからスマートフォンアプリへ画像送信。</p></li>
+<li><p>画像内の人物の顔を削除する。</p></li>
+<li><p>スマートフォンアプリとAI Unit間のメッセージ暗号化。</p></li>
+</ul>
+</section>
+<section id="out-of-scope">
+<h3>Out-of-Scope<a class="headerlink" href="#out-of-scope" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>iOSアプリは対象外。</p></li>
+<li><p>App Store公開は対象外。</p></li>
+<li><p>アプリのバックグラウンド動作は非対応。</p></li>
+<li><p>Phase 1で開発したAIモデルの最適化は対象外。</p></li>
+</ul>
+</section>
+</section>
+<section id="overall-description">
+<h2>Overall Description<a class="headerlink" href="#overall-description" title="Link to this heading"></a></h2>
+<section id="constraints">
+<h3>Constraints<a class="headerlink" href="#constraints" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>顧客提供ハードウェア上で開発する。</p></li>
+<li><p>AIモデルはRKNN形式へ変換して実装する必要がある。</p></li>
+</ul>
+<p>Security</p>
+<ul class="simple">
+<li><p>HBLAB開発アプリのみがAI Unitからのメッセージを受信できる認証機能を実装する。</p></li>
+<li><p>AI Unitから送信される情報は暗号化し、指定アプリのみが読み取り可能とする。</p></li>
+</ul>
+</section>
+</section>
+<section id="functional-requirements">
+<h2>Functional Requirements<a class="headerlink" href="#functional-requirements" title="Link to this heading"></a></h2>
+<section id="fr-da-device-application">
+<h3>FR-DA: Device Application<a class="headerlink" href="#fr-da-device-application" title="Link to this heading"></a></h3>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text"><strong>FR-DA</strong></span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 60.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Content</p></th>
+<th class="head"><p>Detail</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>顧客提供ハードウェア上で動作するアプリを開発する。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Input</p></td>
+<td><p>カメラで取得した画像。</p></td>
+</tr>
+<tr class="row-even"><td><p>Output</p></td>
+<td><p>アプリケーションログ。</p>
+<p>スマートフォンアプリへ送信するメッセージ。</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Preconditions</p></td>
+<td><p>デバイスに十分な電源が供給されている。</p>
+<p>内部メモリに空きがある。</p>
+<p>カメラと接続されている。</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Postconditions</p></td>
+<td><p>プログラムログを保存する。</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text"><strong>Business Flow</strong></span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Business Logic Acceptance Criteria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>プログラム起動</p></li>
+</ol>
+</td>
+<td><p>デバイスへ電源供給。</p></td>
+<td><p>電源投入後、自動起動する。</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>AI Unitとスマートフォン接続</p></li>
+</ol>
+</td>
+<td><p>USB Type-Cで接続。</p></td>
+<td><p>接続成功。</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="3">
+<li><p>スマートフォンからAI Unit設定</p></li>
+</ol>
+</td>
+<td><p>スマートフォンアプリを起動。</p>
+<p>AI Unit設定画面を開く。</p>
+</td>
+<td><p>最低限以下を設定可能：</p>
+<p>AI Unit動作モード（running/stop）。</p>
+<p>連続する2回の撮影間隔（interval）。</p>
+</td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="4">
+<li><p>画像送信</p></li>
+</ol>
+</td>
+<td><p>取得画像をスマートフォンへ送信。</p></td>
+<td><p>overlay画像、raw画像を送信。</p>
+<p>送信成功後、 AI Unit側で削除。</p>
+<p>ログ保存。</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text"><strong>External Flow</strong></span><a class="headerlink" href="#id4" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Business Logic Acceptance Criteria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>configファイル更新</p></li>
+</ol>
+</td>
+<td><p>PCからconfigファイルを更新できる。</p></td>
+<td><p>configファイルでハードウェア上のアプリのパラメータを調整できる（付録1参照）。</p>
+<p>電源投入時にAI Unitが起動し、自転車位置検知モードで動作する。</p>
+<p>連続する2回の撮影間隔：0.5秒。</p>
+<p>正しいAIモデルで動作し、指定フォルダへ画像を保存する。</p>
+<p>configファイルはADB Interfaceを通じてPCから更新できる。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fr-lw-location-warning">
+<h3>FR-LW: Location Warning<a class="headerlink" href="#fr-lw-location-warning" title="Link to this heading"></a></h3>
+<section id="fr-lw-1-location-detection">
+<h4>FR-LW-1: Location Detection<a class="headerlink" href="#fr-lw-1-location-detection" title="Link to this heading"></a></h4>
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-text"><strong>FR-LW-1</strong></span><a class="headerlink" href="#id5" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 60.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Content</p></th>
+<th class="head"><p>Detail</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>カメラ画像を取得し、AIモデルで解析し、走行位置（歩道/車道）を判定する。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Input</p></td>
+<td><p>カメラ画像。</p></td>
+</tr>
+<tr class="row-even"><td><p>Output</p></td>
+<td><p>AI Unitは、自転車の走行位置（歩道／車道）情報を返す。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Preconditions</p></td>
+<td><p>電源供給あり。</p></td>
+</tr>
+<tr class="row-even"><td><p>Postconditions</p></td>
+<td><p>ログ保存。</p>
+<p>overlay画像情報。</p>
+<p>raw画像情報。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fr-lw-2-warning-notification">
+<h4>FR-LW-2: Warning Notification<a class="headerlink" href="#fr-lw-2-warning-notification" title="Link to this heading"></a></h4>
+<table class="docutils align-default" id="id6">
+<caption><span class="caption-text"><strong>FR-LW-2</strong></span><a class="headerlink" href="#id6" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 60.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Content</p></th>
+<th class="head"><p>Detail</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>AI UnitがADB interfaceを通じて自転車の走行位置情報をスマートフォンアプリへ送信する。スマートフォンアプリは、歩道走行を(Y)回連続で検知した後に警告を行う。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Input</p></td>
+<td><p>FR-LW-1の走行位置情報。</p></td>
+</tr>
+<tr class="row-even"><td><p>Output</p></td>
+<td><p>スマートフォンアプリは日本語で「徐行してください」と音声案内を再生する。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Preconditions</p></td>
+<td><p>電源供給あり。</p>
+<p>デバイスとスマートフォンが接続されている。</p>
+<p>スマートフォンアプリ起動済み。</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Postconditions</p></td>
+<td><p>ハードウェアアプリおよびスマートフォンアプリにログを保存する。</p>
+<p>音声通知が正常に再生される。</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id7">
+<caption><span class="caption-text"><strong>Business Flow</strong></span><a class="headerlink" href="#id7" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Desciption</p></th>
+<th class="head"><p>Business Logic Acceptance Criteria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>デバイスがスマートフォンへ通知送信</p></li>
+</ol>
+</td>
+<td><p>自転車の走行位置を検知後、デバイスがADBを通じてスマートフォンへ通知を送信する。</p></td>
+<td><p>AI Unitとスマートフォン間の送受信が成功すること。送受信回数および内容が一致すること。</p>
+<p>送受信ログを保存する。</p>
+</td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>スマートフォンで警告再生</p></li>
+</ol>
+</td>
+<td><p><strong>If:</strong></p>
+<p>スマートフォンが「歩道走行」の情報を受信した場合。</p>
+<p><strong>Then:</strong></p>
+<p>スマートフォンが「徐行してください」と音声案内を再生する。</p>
+</td>
+<td><p>アプリが正常に警告を再生すること。</p>
+<p>ログを保存する。</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-text"><strong>External Flow</strong></span><a class="headerlink" href="#id8" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Business Logic Acceptance Criteria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>警告用config更新</p></li>
+</ol>
+</td>
+<td><p>アプリのsetup画面を開く。</p></td>
+<td><p>setup画面が正常に表示される。</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p><code class="docutils literal notranslate"><span class="pre">連続検知回数</span></code> の更新</p></li>
+</ol>
+</td>
+<td><p>歩道走行を連続で検知する回数を入力し、警告を行う。</p></td>
+<td><p>2回の通知間隔は、<code class="docutils literal notranslate"><span class="pre">直近の通知間隔</span></code> × <code class="docutils literal notranslate"><span class="pre">連続検知回数</span></code> とする。</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="3">
+<li><p><code class="docutils literal notranslate"><span class="pre">連続警告間隔</span></code> の更新</p></li>
+</ol>
+</td>
+<td><p>連続する警告の間隔を入力する。</p></td>
+<td><p>入力可能な値は、（<code class="docutils literal notranslate"><span class="pre">直近の通知間隔</span></code> × <code class="docutils literal notranslate"><span class="pre">連続検知回数</span></code>）の倍数のみとする。異なる場合はエラー表示する。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="fr-cl-clear-sensitive-information">
+<h3>FR-CL: Clear Sensitive Information<a class="headerlink" href="#fr-cl-clear-sensitive-information" title="Link to this heading"></a></h3>
+<section id="fr-cl-1-image-handling">
+<h4>FR-CL-1: Image Handling<a class="headerlink" href="#fr-cl-1-image-handling" title="Link to this heading"></a></h4>
+<table class="docutils align-default" id="id9">
+<caption><span class="caption-text"><strong>Business Flow</strong></span><a class="headerlink" href="#id9" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Desciption</p></th>
+<th class="head"><p>Business Logic Acceptance Criteria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>AI処理後の画像送信</p></li>
+</ol>
+</td>
+<td><p>AI処理後（歩道／車道判定）の画像を自動でAndroidアプリへ送信する。</p></td>
+<td><p>すべての画像（raw画像、処理後overlay画像）を送信する。</p>
+<p>送信は暗号化し、HBLAB開発アプリのみが画像を読み取れる。</p>
+</td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>スマートフォンで画像受信</p></li>
+</ol>
+</td>
+<td><p>スマートフォンアプリが画像を受信し、保存する。</p></td>
+<td><p>保存成功。</p>
+<p>AI Unitへ通知を送信する。</p>
+</td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="3">
+<li><p>AI Unitで画像削除</p></li>
+</ol>
+</td>
+<td><p>メモリ内の画像をすべて削除する。</p></td>
+<td><p>削除成功。</p>
+<p>ログに保存する。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fr-cl-2-clear-sensitive-info">
+<h4>FR-CL-2: Clear Sensitive Info<a class="headerlink" href="#fr-cl-2-clear-sensitive-info" title="Link to this heading"></a></h4>
+<table class="docutils align-default" id="id10">
+<caption><span class="caption-text"><strong>FR-CL-1</strong></span><a class="headerlink" href="#id10" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 60.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Content</p></th>
+<th class="head"><p>Detail</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>日本の法令違反を防ぐため、スマートフォンアプリで画像内の個人情報（歩行者の顔）を削除／ぼかす。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Input</p></td>
+<td><p>AI Unitからスマートフォンアプリへ送信された画像。</p></td>
+</tr>
+<tr class="row-even"><td><p>Output</p></td>
+<td><p>歩行者の顔がぼかされた画像（スマートフォンアプリ上）。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Trigger</p></td>
+<td><p>スマートフォンアプリがAI Unitからの画像を受信した直後。</p></td>
+</tr>
+<tr class="row-even"><td><p>Preconditions</p></td>
+<td><p>AI Unitから画像を受信している。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Postconditions</p></td>
+<td><p>プログラムログを保存する。</p>
+<p>ぼかし処理済み画像を保存する。</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id11">
+<caption><span class="caption-text"><strong>Business Flow</strong></span><a class="headerlink" href="#id11" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Business Logic Acceptance Criteria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>顔検出</p></li>
+</ol>
+</td>
+<td><p>Androidアプリで画像内の歩行者の顔を検出する。</p></td>
+<td><p>画像内のすべての顔を検出する。</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>顔ぼかし</p></li>
+</ol>
+</td>
+<td><p>顔をぼかす。</p></td>
+<td><p>可能な限り強くぼかす。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="fr-cc-connection-checking">
+<h3>FR-CC: Connection Checking<a class="headerlink" href="#fr-cc-connection-checking" title="Link to this heading"></a></h3>
+<table class="docutils align-default" id="id12">
+<caption><span class="caption-text"><strong>FR-CC</strong></span><a class="headerlink" href="#id12" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 60.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Content</p></th>
+<th class="head"><p>Detail</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>デバイスとスマートフォンの接続状態を確認し、通知する。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Input</p></td>
+<td><p>接続情報。</p></td>
+</tr>
+<tr class="row-even"><td><p>Output</p></td>
+<td><p>connect／disconnect通知。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Preconditions</p></td>
+<td><p>デバイスに十分な電源が供給されている。</p>
+<p>必須: AI UnitはUSB Type-Cポートを備えている必要がある。Android Type-Cと接続し、ADB Interfaceで情報取得可能であること.（他ポート対応する場合、AI Unit側も対応が必要）</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Postconditions</p></td>
+<td><p>プログラムログを保存する。</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id13">
+<caption><span class="caption-text"><strong>Business Flow</strong></span><a class="headerlink" href="#id13" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Business Logic Acceptance Criteria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>アプリ起動</p></li>
+</ol>
+</td>
+<td><p>アプリを起動する。</p></td>
+<td><p>スマートフォンアプリがAI Unitに接続されていない状態を表示する。</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>AI Unitをアプリに接続する。</p></li>
+</ol>
+</td>
+<td><p>USBケーブルを物理的に接続する。</p></td>
+<td><p>アプリに「AI Unitデバイスに接続しました」と表示する。</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="3">
+<li><p>切断</p></li>
+</ol>
+</td>
+<td><p>USBケーブルを抜く。</p></td>
+<td><p>アプリに「AI Unitデバイスから切断しました」と表示する。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="non-function-requirement">
+<h2>Non-Function Requirement<a class="headerlink" href="#non-function-requirement" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>MIoU: 70%</p></li>
+<li><p>Accuracy: 70%</p></li>
+</ul>
+</section>
+<section id="appendix">
+<h2>Appendix<a class="headerlink" href="#appendix" title="Link to this heading"></a></h2>
+<p>Config file</p>
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-text"><strong>Business Flow</strong></span><a class="headerlink" href="#id14" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 33.3%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mode</span></code></p></td>
+<td><p>AI Unitの起動方法を選択する。</p></td>
+<td><p>Datatype: String</p>
+<p><code class="docutils literal notranslate"><span class="pre">paused</span></code> : PCからのコマンドで起動</p>
+<p><code class="docutils literal notranslate"><span class="pre">running</span></code> : 電源投入で自動起動</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">processing_mode</span></code></p></td>
+<td><p>動作モードを選択する。</p></td>
+<td><p>Datatype: String</p>
+<p><code class="docutils literal notranslate"><span class="pre">capture-segment</span></code> : メイン動作</p>
+<p><code class="docutils literal notranslate"><span class="pre">capture</span></code> : 画像取得</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">interval</span></code></p></td>
+<td><p>連続する2回の撮影間隔</p></td>
+<td><p>Datatype: Float (unit: 秒)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model_path</span></code></p></td>
+<td><p>モデルフォルダのパス</p></td>
+<td><p>Datatype: String</p>
+<p>Sample: “/userdata/models/ddrnet_rk1808.rknn”</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">base_dir</span></code></p></td>
+<td><p>画像保存フォルダのパス</p></td>
+<td><p>Datatype: String</p>
+<p>Sample: “/userdata/captures”</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to the documentation of the SRS for the project!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="UIUX.html" class="btn btn-neutral float-right" title="UX/UI Design" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright workshop participant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
