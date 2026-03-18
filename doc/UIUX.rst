@@ -1,67 +1,127 @@
 UX/UI Design
 ================
 
-接続状態および位置ステータス
+Connection and Location Status
 -----------------------------------
 
-.. image:: img/connecttion.png
+.. image:: img/2733.png
    :alt: connecttion
    :width: 400px
    :align: center 
 
-.. image:: img/connection.png
-   :alt: connection
-   :width: 400px
-   :align: center
-
-.. list-table:: **Business Flow**
+.. list-table:: **Status**
    :widths: 15 30 30
    :header-rows: 1
 
    * - Number
      - Desciption
      - Value
-   * - 1: USB Connection
-     - USB接続状態
-     - ``Connection``
+   * - 1
+     - 物理USB接続状態
+     - ``接続済み``
 
-       ``Disconnection``
-   * - 2: Warning
-     - 位置ステータス
-     - Status: ``Sidewark Alert`` and ``Normal``
+       ``未接続``
+   * - 2
+     - ADB接続状態
+     - ``接続済み``
 
-       ログ記録
+       ``接続済み``
+   * - 3
+     - 位置情報ステータス
+     - ステータス: ``歩道警告`` および ``正常``
+
+       ログ情報
+      
+       ``最後の警告 ``: 直近でスマートフォンが警告音声を再生した時刻
+
+       ``最後の信号``: デバイスから最新の位置情報を受信した時刻
+
+       ``最後の処理``: 最新の位置情報を処理した時刻（現時点では「最後の信号」と同一）
+
+       ``最後の位置``: 最後に検知された位置：歩道 または 車道
+
+       ``連続検出回数``: 現在の歩道連続検知回数。車道が検知された場合、または警告が発報された後に 0 にリセットされる。
+
 
 Configuration
 -------------------
 
-.. image:: img/config.png
+.. image:: img/2602.png
    :alt: config
    :width: 400px
    :align: center
 
-.. list-table:: **Business Flow**
+.. list-table:: **Status**
    :widths: 15 30 30
    :header-rows: 1
 
    * - Number
      - Desciption
      - Value
-   * - 1: Mode
-     - AI Unitの動作モードを選択
-     - ``Unavailable``: AI Unitとスマートフォンアプリが未接続
+   * - 1
+     - AIユニットの設定ファイルを初回取得する。現在のAIユニットの設定内容を確認する際に使用する。
+     - 取得した情報は項目2および3に反映される。
+   * - 2
+     - AIユニットの動作モードを選択
+     - ``利用不可``: AIユニットとスマートフォンアプリが未接続のため、デフォルトでは設定情報は未取得の状態となる。
 
-       ``Running``: 電源接続後にAI Unitが自動起動
+       ``実行中``: 電源接続後、AIユニットが自動的に起動する
 
-       ``Stop``: AI Unitのすべての動作を停止
-   * - 2: Interval
-     - AI Unitの画像処理間隔を設定
-     - Unit: ``seconds``
+       ``一時停止``: AIユニットの動作を停止する
+   * - 3
+     - 自転車の位置情報を取得する間隔を設定
+     - 単位: ``秒``
 
-       Min: 0.2
-   * - 3: Consecutive sidewalk warnings
-     - 自転車が歩道を連続走行していると判定された回数がこの値に達すると警告を発する
-     - Datatype: ``number``
-   * - 4: Audio repeat interval (seconds)
-     - 連続する警告音の間隔。この値は項目 ``2`` と ``3`` の倍数である必要がある
-     - Unit: ``seconds``
+       最小値: 0.2
+   * - 4
+     - 歩道の連続検知回数（この回数に達すると警告を発報）
+     - データ型: ``数値``
+
+       単位: ``回``
+   * - 5
+     - 通知間隔（2回の警告間の時間）。本値は項目 ``3`` × ``4`` の値より大きく設定する必要がある。
+     - 単位: ``秒``
+   * - 6
+     - スマートフォン画面に表示する警告テキスト
+     - 任意入力（テキスト形式）
+
+       制限：全角30文字以内
+
+.. image:: img/2660.png
+   :alt: config
+   :width: 400px
+   :align: center
+
+.. list-table:: **Status**
+   :widths: 15 30 30
+   :header-rows: 1
+
+   * - Number
+     - Desciption
+     - Value
+   * - 1
+     - 警告テキストのフォント設定
+     - 選択式。対応フォント：
+
+       MS Gothic (ＭＳ ゴシック)
+
+       MS Mincho (ＭＳ 明朝)
+
+       Meiryo (メイリオ)
+
+       Yu Gothic (遊ゴシック)
+
+       Yu Mincho (遊明朝)
+
+       Hiragino Kaku Gothic (ヒラギノ角ゴ)
+   * - 2
+     - 警告テキストのサイズ設定
+     - 数値入力
+   * - 3
+     - 警告テキストの表示時間
+     - 単位: ``秒``
+   * - 4
+     - 警告テキストのプレビュー表示
+     - プレビュー画像
+   * - 5
+     - 設定を保存し、スマートフォンアプリに適用する
