@@ -126,3 +126,11 @@ Configuration
    * - 5
      - 設定を保存し、スマートフォンアプリに適用する
      - 
+
+Error Notification
+-----------------------
+
+.. image:: img/2705.png
+   :alt: config
+   :width: 400px
+   :align: center
