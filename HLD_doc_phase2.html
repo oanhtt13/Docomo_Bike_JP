@@ -1,0 +1,523 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HLD Phase 2 — 主要機能の処理フロー &mdash; Docomo Bike 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/lang.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="UX/UI Design" href="UIUX.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Docomo Bike
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="SRS_Doc.html">SRSドキュメント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UX/UI Design</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">HLD Phase 2 — 主要機能の処理フロー</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">目次</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1. 概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fr-cc-connection-checking">2. FR-CC — Connection Checking/接続確認</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">説明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">フローダイアグラム</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">各ステップの説明</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#fr-da-device-application">3. FR-DA — Device Application/デバイスアプリケーション</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">フローダイアグラム</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">各ステップの説明</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#fr-lw-location-warning">4. FR-LW — Location Warning/位置に基づく警告発報</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">フローダイアグラム</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">各ステップの説明</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#fr-cl-clear-sensitive-info">5. FR-CL — Clear Sensitive Info/機微画像の処理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id12">概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">フローダイアグラム</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">各ステップの説明</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">6. 方法論</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adb">ADBインターフェースに関する調査報告</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">顔ぼかし処理の方式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Docomo Bike</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">HLD Phase 2 — 主要機能の処理フロー</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/HLD_doc_phase2.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hld-phase-2">
+<h1>HLD Phase 2 — 主要機能の処理フロー<a class="headerlink" href="#hld-phase-2" title="Link to this heading"></a></h1>
+<section id="id1">
+<h2>目次<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="#1-t%E1%BB%95ng-quan"><span class="xref myst">1. 概要</span></a></p>
+<p><a class="reference internal" href="#2-fr-cc--ki%E1%BB%83m-tra-k%E1%BA%BFt-n%E1%BB%91i"><span class="xref myst">2. FR-CC: Connection Checking/接続確認</span></a></p>
+<p><a class="reference internal" href="#3-fr-da--device-application"><span class="xref myst">3. FR-DA: Device Application/デバイスアプリケーション</span></a></p>
+<p><a class="reference internal" href="#4-fr-lw--ph%C3%A1t-c%E1%BA%A3nh-b%C3%A1o-v%E1%BB%8B-tr%C3%AD"><span class="xref myst">4. FR-LW: Location Warning/位置に基づく警告発報</span></a></p>
+<p><a class="reference internal" href="#5-fr-cl--x%E1%BB%AD-l%C3%BD-%E1%BA%A3nh-nh%E1%BA%A1y-c%E1%BA%A3m"><span class="xref myst">5. FR-CL: Clear Sensitive Info/機微画像の処理</span></a></p>
+<p><a class="reference internal" href="#6-ph%C6%B0%C6%A1ng-ph%C3%A1p-lu%E1%BA%ADn"><span class="xref myst">6. 方法論</span></a></p>
+</section>
+<section id="id2">
+<h2>1. 概要<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>Bike Camera SegmentationプロジェクトのPhase 2では、4つの主要機能を追加しており、それぞれが個別のFunctional Requirement（FR）として定義されています：</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>FR</p></th>
+<th class="head"><p>名称</p></th>
+<th class="head"><p>概要</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>FR-CC</strong></p></td>
+<td><p>Connection Checking/接続確認</p></td>
+<td><p>スマートフォンとAI Unit間のUSB/ADB接続状態を検知・表示する</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>FR-DA</strong></p></td>
+<td><p>Device Application/デバイスアプリケーション</p></td>
+<td><p>電源投入時にAI Unitが自動でサービスを起動し、画像取得・AI解析・暗号化・ログ保存を行う</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>FR-LW</strong></p></td>
+<td><p>Location Warning/位置に基づく警告発報</p></td>
+<td><p>スマートフォンアプリがログを定期的に読み取り、歩道走行が一定回数連続した場合に警告を発する</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>FR-CL</strong></p></td>
+<td><p>Clear Sensitive Info/機微画像の処理</p></td>
+<td><p>位置変化時にスマートフォンアプリがAI Unitから画像を取得・復号し、顔ぼかし処理を行ってローカルストレージに保存する</p></td>
+</tr>
+</tbody>
+</table>
+<p>これら4つの機能は並行して動作し、相互に密接に連携しています：</p>
+<ul class="simple">
+<li><p><strong>FR-DA</strong> は基盤データ（画像・位置ログ）を <strong>FR-LW</strong> および <strong>FR-CL</strong> に提供します。</p></li>
+<li><p><strong>FR-CC</strong> はADB通信の安定性を担保し、<strong>FR-LW</strong> と <strong>FR-CL</strong> の動作前提条件となります。</p></li>
+<li><p><strong>FR-LW</strong> は位置変化イベントを検知し、<strong>FR-CL</strong> の画像処理フローをトリガーします。</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="fr-cc-connection-checking">
+<h2>2. FR-CC — Connection Checking/接続確認<a class="headerlink" href="#fr-cc-connection-checking" title="Link to this heading"></a></h2>
+<section id="id3">
+<h3>説明<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>FR-CCは、スマートフォンとAI Unit間の接続状態を継続的に監視し、以下の2つのレイヤーで構成されます：</p>
+<ul class="simple">
+<li><p><strong>物理接続（USB）</strong> — ケーブルの接続／切断を即時に検知します。</p></li>
+<li><p><strong>論理接続（ADB）</strong> — 簡単なテストコマンドを送信し、応答を確認することで、AI Unitデバイスがコマンドを受信可能かを検証します。</p></li>
+</ul>
+<p><strong>両方のレイヤーが正常な場合のみ</strong>、アプリは「接続済み」と表示します。<br />
+いずれか一方でも失われた場合、アプリは即座に「未接続」に状態を更新します。</p>
+<p>アプリは受動的なイベント待ちではなく、周期的に接続状態をチェックします<br />
+（未接続時：約2秒ごと、接続済み時：約5秒ごと）ことで、接続切断を迅速に検知できるようにしています。</p>
+</section>
+<section id="id4">
+<h3>フローダイアグラム<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p><img alt="FR-CC Flow Diagram" src="_images/flow_fr_cc.png" /></p>
+</section>
+<section id="id5">
+<h3>各ステップの説明<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ステップ</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>ユーザーがアプリを起動する。</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>アプリは初期状態として「未接続」を表示する。</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>ユーザーがスマートフォンとAI UnitをUSBケーブルで接続する。</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>AndroidシステムがUSBデバイスの接続を検知し、アプリへ通知する。</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>AndroidがUSBアクセス許可ダイアログを表示し、ユーザーが <strong>OK</strong> を押して許可する。未許可の場合、次回チェック時に再度要求される。</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>許可後、アプリはADBハンドシェイク（ADB接続の確立の確認）を実行し、デバイスがコマンドを受信可能かを確認する。</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>ハンドシェイク成功 → アプリは状態を「接続済み」に更新し、同時にAI Unitから現在の設定を自動取得する。</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>ユーザーがUSBケーブルを抜く。</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>AndroidがUSBデバイスの切断を通知 → アプリは即座に「未接続」に更新する。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<hr class="docutils" />
+<section id="fr-da-device-application">
+<h2>3. FR-DA — Device Application/デバイスアプリケーション<a class="headerlink" href="#fr-da-device-application" title="Link to this heading"></a></h2>
+<section id="id6">
+<h3>概要<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<p>FR-DAは、AI Unitが電源投入時にどのように動作するかを定義します。<br />
+画像取得、AI解析、暗号化、およびログ記録の一連の処理は、<strong>ユーザーの操作なしで自動的に実行される必要があります</strong>。</p>
+<p>また、スマートフォンアプリは任意のタイミングで設定ファイルをAI Unitへ送信し、動作を変更することが可能です。<br />
+新しい設定は、再起動なしで即時に適用されます。</p>
+<p><strong>主な設定パラメータ:</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>パラメータ</p></th>
+<th class="head"><p>保存場所</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mode</span></code></p></td>
+<td><p>デバイス設定（AI Unit）</p></td>
+<td><p>動作モード：<code class="docutils literal notranslate"><span class="pre">実行中</span></code> または <code class="docutils literal notranslate"><span class="pre">一時停止</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">processingMode</span></code></p></td>
+<td><p>デバイス設定（AI Unit）</p></td>
+<td><p>処理モード：撮影のみ、または撮影＋解析</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">interval</span></code></p></td>
+<td><p>デバイス設定（AI Unit）</p></td>
+<td><p>画像撮影間隔（秒）</p></td>
+</tr>
+<tr class="row-odd"><td><p>警告するまでの歩道連続検知回数（N）</p></td>
+<td><p>アプリ設定（スマートフォン）</p></td>
+<td><p>歩道の連続検知回数（この回数に達すると警告を発報）</p></td>
+</tr>
+<tr class="row-even"><td><p>次回警告までの間隔（T）</p></td>
+<td><p>アプリ設定（スマートフォン）</p></td>
+<td><p>通知間隔（2回の警告間の時間）</p></td>
+</tr>
+<tr class="row-odd"><td><p>警告テキスト／フォント</p></td>
+<td><p>アプリ設定（スマートフォン）</p></td>
+<td><p>警告表示時のテキストおよびフォント設定</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><strong>注意:</strong> ユーザーがアプリ設定画面で「保存」を押した場合、<code class="docutils literal notranslate"><span class="pre">mode</span></code> または <code class="docutils literal notranslate"><span class="pre">interval</span></code> に変更がある場合のみ、アプリはAI Unitへ設定を送信します。その他の設定はスマートフォン側にのみ保存されます。</p>
+</div></blockquote>
+</section>
+<section id="id7">
+<h3>フローダイアグラム<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<p><img alt="FR-DA Flow Diagram" src="_images/flow_fr_da.png" /></p>
+</section>
+<section id="id8">
+<h3>各ステップの説明<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ステップ</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>ユーザーがAI Unitに電源を投入する。</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>システムがバックグラウンドサービスを自動起動する。</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>サービスがAIモデルをメモリに読み込む。</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>カメラを起動し、画像撮影ループを開始する。</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>設定された周期で画像を撮影する。</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>AI解析を実行し、自転車が <code class="docutils literal notranslate"><span class="pre">road</span></code>（車道） または <code class="docutils literal notranslate"><span class="pre">sidewalk</span></code>（歩道） のどちらにいるかを判定する。</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>保存前に画像を暗号化する。</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>暗号化した画像をストレージに保存し、解析結果を <code class="docutils literal notranslate"><span class="pre">position.log</span></code> に記録する。</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p><em>（設定更新）</em> ユーザーがアプリ設定画面を開き、デバイスの現在設定およびアプリ設定を確認する。</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>ユーザーが値を変更して <strong>保存</strong> を押す。アプリは保存前に妥当性を確認する（例：次回警告までの間隔 は interval × 警告するまでの歩道連続検知回数（N） より大きい必要がある）。</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mode</span></code> または <code class="docutils literal notranslate"><span class="pre">interval</span></code> が変更された場合、アプリは <code class="docutils literal notranslate"><span class="pre">config.json</span></code> をAI Unitへ送信する。その他の設定はスマートフォン側にのみ保存される。</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>AI Unitは新しい設定を即時適用し、再起動は不要である。アプリは結果通知を3秒間表示する。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<hr class="docutils" />
+<section id="fr-lw-location-warning">
+<h2>4. FR-LW — Location Warning/位置に基づく警告発報<a class="headerlink" href="#fr-lw-location-warning" title="Link to this heading"></a></h2>
+<section id="id9">
+<h3>概要<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<p>FR-LWは以下の2つの要素で構成されます：</p>
+<ul class="simple">
+<li><p><strong>FR-LW-1</strong>: AI Unitは、各解析後に分類結果（<code class="docutils literal notranslate"><span class="pre">road</span></code> / <code class="docutils literal notranslate"><span class="pre">sidewalk</span></code>）を <code class="docutils literal notranslate"><span class="pre">position.log</span></code> に継続的に記録する。</p></li>
+<li><p><strong>FR-LW-2</strong>: スマートフォンアプリは、<code class="docutils literal notranslate"><span class="pre">position.log</span></code> の最新行を定期的に取得する。<br />
+連続して <strong>N回 <code class="docutils literal notranslate"><span class="pre">sidewalk</span></code> が検出された場合</strong>、アプリは音声および視覚的な警告を発報する。<br />
+警告後はカウンタをリセットし、次回警告までの間隔が経過するまで待機する。</p></li>
+</ul>
+<p>本警告ロジックは、自転車が短時間だけ歩道を通過した場合の誤検知を防止することを目的としています。</p>
+<p><strong>注意:</strong> N（警告するまでの歩道連続検知回数）および T（次回警告までの間隔）は、AI Unitデバイス設定ではなく<strong>スマートフォンアプリの設定</strong>で管理されます。</p>
+</section>
+<section id="id10">
+<h3>フローダイアグラム<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<p><img alt="FR-LW Flow Diagram" src="_images/flow_fr_lw.png" /></p>
+</section>
+<section id="id11">
+<h3>各ステップの説明<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ステップ</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>AI Unitは、各解析後に <code class="docutils literal notranslate"><span class="pre">position.log</span></code> へ結果を記録する（継続動作）。</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>スマートフォンアプリは、<code class="docutils literal notranslate"><span class="pre">position.log</span></code> の最新行を周期的に取得する。取得周期はデバイス側で設定された <code class="docutils literal notranslate"><span class="pre">interval</span></code> と同一とする。</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>アプリは、取得した結果が <code class="docutils literal notranslate"><span class="pre">sidewalk</span></code> かどうかを確認する。<code class="docutils literal notranslate"><span class="pre">sidewalk</span></code> の場合はカウンタを加算し、<code class="docutils literal notranslate"><span class="pre">road</span></code> の場合はカウンタを0にリセットする。</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>カウンタがN回（警告するまでの歩道連続検知回数）に達した場合、警告を発動する。</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>警告音を再生する。</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>画面上に警告メッセージを表示する。</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>カウンタをリセットする。次回警告までの待機時間中にさらに連続 N 回が検出された場合は、警告を保留し、待機時間終了後に直ちに発報する。</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>ステップ2に戻り、処理を継続する。</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>警告ルール:</strong></p>
+<ul class="simple">
+<li><p>警告は、<code class="docutils literal notranslate"><span class="pre">road</span></code> によって中断されることなく、<code class="docutils literal notranslate"><span class="pre">sidewalk</span></code> が <strong>連続 N 回</strong> 検出された場合にのみ発動する。</p></li>
+<li><p>警告後は、次回警告まで<strong>T秒</strong> 待機する。この待機中にさらに連続 N 回が検出された場合は、待機終了後に直ちに警告を発報する。</p></li>
+<li><p>N（警告するまでの歩道連続検知回数）および T（次回警告までの間隔）は、AI Unitデバイス設定ではなく<strong>スマートフォンアプリの設定</strong>で管理されます。</p></li>
+</ul>
+<p><strong>ストレージ容量不足時の警告（エラーフロー）:</strong></p>
+<p>AI Unitのストレージが満杯になると、新たな画像を保存できなくなり、<code class="docutils literal notranslate"><span class="pre">service.log</span></code> にエラーが記録されます。<br />
+アプリは以下の仕組みにより間接的に検知します：</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ステップ</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>AI Unitのストレージが満杯になる → <code class="docutils literal notranslate"><span class="pre">service.log</span></code> にエラーが記録され、<code class="docutils literal notranslate"><span class="pre">position.log</span></code> の更新が停止する。</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>アプリは、4回連続のポーリングで <code class="docutils literal notranslate"><span class="pre">position.log</span></code> に新しい行が追加されていないことを検知する。</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>アプリは原因を確認するために <code class="docutils literal notranslate"><span class="pre">service.log</span></code> を参照する。</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>「デバイスの空き容量がありません」エラーを検出した場合、ポーリングを停止し、警告ダイアログを表示する。ダイアログは画面外タップでは閉じることができない。</p></td>
+</tr>
+<tr class="row-even"><td><p>5a</p></td>
+<td><p>ユーザーが <strong>「データ削除」</strong> を選択 → AI Unit上のすべての画像を削除し、カウンタをリセットした後、自動的に監視を再開する。</p></td>
+</tr>
+<tr class="row-odd"><td><p>5b</p></td>
+<td><p>ユーザーが <strong>✕</strong> を選択 → ダイアログを閉じ、監視を停止する（画像は削除されない）。</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>さらに、ユーザーはスマートフォンアプリの設定画面にあるオプションボタンから、いつでも画像を削除することができます（UI/UXデザイン資料を参照）</em></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="fr-cl-clear-sensitive-info">
+<h2>5. FR-CL — Clear Sensitive Info/機微画像の処理<a class="headerlink" href="#fr-cl-clear-sensitive-info" title="Link to this heading"></a></h2>
+<section id="id12">
+<h3>概要<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<p>FR-CLは、人の顔を含む画像が、スマートフォン上に長期保存される前に適切に処理されることを保証する。<br />
+本機能は、アプリが自転車の状態遷移（車道から歩道、またはその逆）を検知した際に自動的に起動する。</p>
+<p>保存後の画像は、プライバシー保護のため、スマートフォンの画像ライブラリ（ギャラリー）から参照されないアプリ専用フォルダに保存される。<br />
+また、処理中において、ぼかし処理前の元画像はストレージへ書き出されず、一時的にメモリ上にのみ保持される。</p>
+</section>
+<section id="id13">
+<h3>フローダイアグラム<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<p><img alt="FR-CL Flow Diagram" src="_images/flow_fr_cl.png" /></p>
+</section>
+<section id="id14">
+<h3>各ステップの説明<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ステップ</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>アプリは、<code class="docutils literal notranslate"><span class="pre">position.log</span></code> をもとに自転車の位置状態（<code class="docutils literal notranslate"><span class="pre">sidewalk</span> <span class="pre">↔</span> <span class="pre">road</span></code>）の遷移を検知する。</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>アプリは、状態遷移時点に対応する暗号化画像ファイル（<code class="docutils literal notranslate"><span class="pre">.enc</span></code>）をAI Unitからスマートフォンへ取得する。取得対象には、元画像および解析領域が描画されたoverlay画像が含まれる。</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>AI Unitは暗号化された画像ファイルを返却する。</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>アプリはメモリ上で画像を復号する。</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>画像内の顔領域を検出する。</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>検出された各顔領域に対してぼかし処理（Gaussian blur）を実施する。</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>ぼかし処理後の画像をスマートフォンの <code class="docutils literal notranslate"><span class="pre">DCIM/bike_warning/</span></code> フォルダに保存する。本フォルダは <code class="docutils literal notranslate"><span class="pre">.nomedia</span></code> により画像ライブラリ（ギャラリー）から非表示となる。なお、本処理はバックグラウンドで実行され、画面上への通知は行われない。</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>セキュリティに関する注意:</strong></p>
+<ul class="simple">
+<li><p>ぼかし前の元画像は処理時にメモリ上のみに存在し、ストレージへは保存されない。</p></li>
+<li><p>AI Unit上の暗号化画像ファイルは、取得後も自動削除されない。削除はユーザー操作により別途実施される（詳細はFR-CLのデータ削除機能を参照）。</p></li>
+</ul>
+</section>
+</section>
+<section id="id15">
+<h2>6. 方法論<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
+<section id="adb">
+<h3>ADBインターフェースに関する調査報告<a class="headerlink" href="#adb" title="Link to this heading"></a></h3>
+<p>お客様よりご提供いただいたデバイス（チップ：RK1808）のデータシートおよびOS情報（Linux）をもとに調査を行い、以下の通り整理いたしました。</p>
+<p><strong>PC接続時の挙動</strong></p>
+<ul class="simple">
+<li><p>デバイスがUSB経由でADB接続される場合、PCがホストとして動作し、デバイスはスレーブ(制御対象)として動作する。</p></li>
+<li><p>そのため、データの送受信はPC側からAI Unitへの操作（push / pull）のみが可能であり、逆方向の通信は行えない。</p></li>
+</ul>
+<p><strong>スマートフォン接続時の挙動</strong></p>
+<ul class="simple">
+<li><p>PC接続時と同様に、デバイスをスマートフォンへ接続した場合も、スマートフォンがホストとして動作し、AI Unitを制御する。</p></li>
+</ul>
+</section>
+<section id="id16">
+<h3>顔ぼかし処理の方式<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<p>本機能では、<a class="reference external" href="https://developers.google.com/ml-kit/vision/face-detection?hl=ja">Google ML Kit Face Detection</a> ライブラリを使用し、画像内に含まれる人物の顔を検出します。<br />
+本ライブラリを採用した理由は以下の通りです：</p>
+<ul class="simple">
+<li><p>Android向けに最適化されている</p></li>
+<li><p>オンデバイスで動作（端末内で処理が完結し、インターネット接続不要）</p></li>
+<li><p>SDKが提供されており、導入が容易</p></li>
+<li><p>高い検出精度（約93%以上）</p></li>
+<li><p>本番環境でも無償で利用可能</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="UIUX.html" class="btn btn-neutral float-left" title="UX/UI Design" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright workshop participant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

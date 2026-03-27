@@ -1,0 +1,828 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SRSドキュメント &mdash; Docomo Bike 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/lang.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="UX/UI Design" href="UIUX.html" />
+    <link rel="prev" title="Welcome to the documentation of the SRS for the project!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Docomo Bike
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SRSドキュメント</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">はじめに</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">スコープ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#in-scope">対象範囲（In-Scope）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#out-of-scope">対象外（Out-of-Scope）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">全体概要</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">制約条件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">セキュリティ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">機能要件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fr-da">FR-DA: デバイスアプリケーション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fr-lw">FR-LW: 位置警告</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fr-lw-1">FR-LW-1: 位置検知</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fr-lw-2">FR-LW-2: 警告発報</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#fr-cl">FR-CL: 顔ぼかし処理</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fr-cl-1">FR-CL-1: 画像処理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fr-cl-2">FR-CL-2: 顔情報ぼかし処理</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#fr-cc">FR-CC: 接続状態確認</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">非機能要件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">付録</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UX/UI Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HLD_doc_phase2.html">HLD Phase 2 — 主要機能の処理フロー</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Docomo Bike</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">SRSドキュメント</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/SRS_Doc.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="srs">
+<h1>SRSドキュメント<a class="headerlink" href="#srs" title="Link to this heading"></a></h1>
+<section id="id1">
+<h2>はじめに<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>AIユニットおよびAndroidアプリケーションから構成されるシステムを開発する。
+本システムは、自転車の走行位置を検知し、ユーザーに警告を発報することで、
+利用者の安全意識の向上を目的とする。</p>
+<p>本システムは以下で構成される：</p>
+<ul class="simple">
+<li><p>お客様提供のAIユニット（RK1808）上で動作するアプリケーション</p></li>
+<li><p>Androidスマートフォンアプリケーション</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>スコープ<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<section id="in-scope">
+<h3>対象範囲（In-Scope）<a class="headerlink" href="#in-scope" title="Link to this heading"></a></h3>
+<p>スマートフォンアプリケーションを開発し、自転車が歩道を走行していると検知した場合、
+ユーザーに警告を発報する。</p>
+<p>Phase2では、Androidアプリケーションの開発および既存AIユニットとの連携に注力する。</p>
+<p>主な機能：</p>
+<ul class="simple">
+<li><p>自転車の走行位置を判定し、減速を促す警告を発報する</p></li>
+<li><p>デバイスとスマートフォン間の接続状態を確認する</p></li>
+<li><p>自転車の位置が変化（歩道／車道）した際に、スマートフォンアプリがAIユニットから画像を自動取得する</p></li>
+<li><p>画像内の個人情報（顔など）を除去する</p></li>
+<li><p>画像はAIユニット上で暗号化され、スマートフォンアプリのみが復号可能とする</p></li>
+</ul>
+</section>
+<section id="out-of-scope">
+<h3>対象外（Out-of-Scope）<a class="headerlink" href="#out-of-scope" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>iOSアプリは対象外とする</p></li>
+<li><p>App Storeへの公開は対象外とする</p></li>
+<li><p>バックグラウンド実行は非対応とする</p></li>
+<li><p>Phase1で開発済みのAIモデルの最適化は対象外とする</p></li>
+<li><p>UI/UXのカスタマイズは対象外とする</p></li>
+</ul>
+</section>
+</section>
+<section id="id3">
+<h2>全体概要<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<section id="id4">
+<h3>制約条件<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>お客様提供のハードウェア（RK1808）上で開発を行う</p></li>
+<li><p>開発したAIモデルはRKNN形式に変換し、デバイス上で実行可能とする</p></li>
+</ul>
+<section id="id5">
+<h4>セキュリティ<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>アプリケーション認証機能を実装し、HBLAB製アプリのみがAIユニットからデータを受信可能とする</p></li>
+<li><p>画像はAIユニット上で保存前に暗号化される。AIユニットは暗号化のみ可能であり、復号はできない</p></li>
+<li><p>復号情報を保持するスマートフォンアプリのみが画像を閲覧可能とする</p></li>
+<li><p>AIユニットからPCへ取得した画像は、HBLAB製の専用アプリで復号後にのみ閲覧可能とする</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="id6">
+<h2>機能要件<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<section id="fr-da">
+<h3>FR-DA: デバイスアプリケーション<a class="headerlink" href="#fr-da" title="Link to this heading"></a></h3>
+<table class="docutils align-default" id="id9">
+<caption><span class="caption-text"><strong>FR-DA</strong></span><a class="headerlink" href="#id9" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 60.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>項目</p></th>
+<th class="head"><p>内容</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>説明</p></td>
+<td><p>お客様提供のハードウェア上で動作するアプリケーションを開発する</p></td>
+</tr>
+<tr class="row-odd"><td><p>入力</p></td>
+<td><p>カメラから取得した画像</p></td>
+</tr>
+<tr class="row-even"><td><p>出力</p></td>
+<td><p>アプリケーションログ</p>
+<p>画像は暗号化された状態でデバイスのストレージに保存され、スマートフォンアプリから取得可能とする</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>前提条件</p></td>
+<td><p>デバイスに電源が供給されていること</p>
+<p>内部ストレージに十分な空き容量があること</p>
+<p>デバイスがカメラと接続されていること</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>事後条件</p></td>
+<td><p>プログラムログが保存されること</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id10">
+<caption><span class="caption-text"><strong>Business Flow</strong></span><a class="headerlink" href="#id10" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>手順</p></th>
+<th class="head"><p>内容</p></th>
+<th class="head"><p>受入条件</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>プログラム起動</p></li>
+</ol>
+</td>
+<td><p>デバイスに電源を供給する</p></td>
+<td><p>電源投入時に自動起動すること</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>AIユニットとスマートフォンアプリの接続</p></li>
+</ol>
+</td>
+<td><p>AIユニットのUSB Type-Cポートとスマートフォンを接続する</p></td>
+<td><p>接続が正常に確立されること</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="3">
+<li><p>スマートフォンアプリによるAIユニット設定</p></li>
+</ol>
+</td>
+<td><p>スマートフォンアプリの画面を開く</p>
+<p>AIユニット設定画面を表示する</p>
+</td>
+<td><p>AIユニットの設定が可能であること。最低限以下を設定可能とする：</p>
+<p>動作モード（Running / Stopped）</p>
+<p>連続する2回の画像取得間隔（interval）</p>
+</td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="4">
+<li><p>スマートフォンアプリによる画像取得</p></li>
+</ol>
+</td>
+<td><p>自転車の位置が変化（歩道／車道）したことを検知した後、スマートフォンアプリがAIユニットから対応する画像を自動取得する</p></td>
+<td><p>overlay画像およびraw画像をスマートフォンのローカルストレージに保存する</p>
+<p>画像は事前にデバイス上で暗号化されており、スマートフォンアプリで取得後に復号する</p>
+<p>ログが保存されること</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id11">
+<caption><span class="caption-text"><strong>External Flow</strong></span><a class="headerlink" href="#id11" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>手順</p></th>
+<th class="head"><p>内容</p></th>
+<th class="head"><p>受入条件</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>設定ファイルの更新</p></li>
+</ol>
+</td>
+<td><p>PCから設定ファイルを更新可能とする</p></td>
+<td><p>設定ファイルにより、ハードウェア上で動作するアプリケーションの各種パラメータを調整可能とする（詳細は付録1を参照）</p>
+<p>電源投入時にアプリケーションが起動し、自転車の位置検知モードで動作すること</p>
+<p>連続する2回の画像取得間隔が設定値どおりに動作すること</p>
+<p>指定されたAIモデルで動作し、指定ディレクトリに画像が保存されること</p>
+<p>設定ファイルはADBインターフェースを介してPCから更新可能であること</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fr-lw">
+<h3>FR-LW: 位置警告<a class="headerlink" href="#fr-lw" title="Link to this heading"></a></h3>
+<section id="fr-lw-1">
+<h4>FR-LW-1: 位置検知<a class="headerlink" href="#fr-lw-1" title="Link to this heading"></a></h4>
+<table class="docutils align-default" id="id12">
+<caption><span class="caption-text"><strong>FR-LW-1</strong></span><a class="headerlink" href="#id12" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>項目</p></th>
+<th class="head"><p>内容</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>説明</p></td>
+<td><p>カメラを使用して、ユーザーが自転車を利用している際の画像を取得する機能を提供する</p>
+<p>取得した画像をAIモデルで解析し、自転車の走行位置（歩道／車道）を検知可能とする</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>入力</p></td>
+<td><p>カメラから取得した画像</p></td>
+</tr>
+<tr class="row-even"><td><p>出力</p></td>
+<td><p>AIユニットから走行位置情報（歩道／車道）を出力する</p></td>
+</tr>
+<tr class="row-odd"><td><p>前提条件</p></td>
+<td><p>デバイスに電源が供給されていること</p></td>
+</tr>
+<tr class="row-even"><td><p>事後条件</p></td>
+<td><p>プログラムログを保存する</p>
+<p>overlay画像情報を保存する</p>
+<p>raw画像情報を保存する</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id13">
+<caption><span class="caption-text"><strong>Business Flow</strong></span><a class="headerlink" href="#id13" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>手順</p></th>
+<th class="head"><p>内容</p></th>
+<th class="head"><p>受入条件</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>歩道／車道領域の検知</p></li>
+</ol>
+</td>
+<td><p>AIモデルにより画像を解析し、歩道および車道の領域を識別する</p></td>
+<td><p>Phase1で定義されたmIoUを満たすこと</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>自転車位置の判定</p></li>
+</ol>
+</td>
+<td><p>取得した画像に基づき、自転車の走行位置（歩道／車道）を判定する</p></td>
+<td><p>歩道／車道の識別結果に基づき、自転車の走行位置を特定可能であること</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fr-lw-2">
+<h4>FR-LW-2: 警告発報<a class="headerlink" href="#fr-lw-2" title="Link to this heading"></a></h4>
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-text"><strong>FR-LW-2</strong></span><a class="headerlink" href="#id14" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 60.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>項目</p></th>
+<th class="head"><p>内容</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>説明</p></td>
+<td><p>スマートフォンアプリはADBインターフェースを介して、定期的にAIユニットから自転車の位置情報を取得する。
+自転車が歩道をY回連続で走行していると検知された場合、警告を発報する。</p></td>
+</tr>
+<tr class="row-odd"><td><p>入力</p></td>
+<td><p>FR-LW-1で取得された自転車の位置情報</p></td>
+</tr>
+<tr class="row-even"><td><p>出力</p></td>
+<td><p>「ゆっくり走行してください」という音声警告を日本語で発報する</p>
+<p>スマートフォン画面に警告メッセージを表示する</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>前提条件</p></td>
+<td><p>デバイスに電源が供給されていること</p>
+<p>ハードウェアデバイスとスマートフォンアプリが接続されていること</p>
+<p>スマートフォンアプリが起動されていること</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>事後条件</p></td>
+<td><p>ハードウェア側およびスマートフォンアプリ側にログが保存されること</p>
+<p>音声警告が正常に発報されること</p>
+<p>警告メッセージが正常に表示されること</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id15">
+<caption><span class="caption-text"><strong>Business Flow</strong></span><a class="headerlink" href="#id15" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>手順</p></th>
+<th class="head"><p>内容</p></th>
+<th class="head"><p>受入条件</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>スマートフォンによる位置情報取得</p></li>
+</ol>
+</td>
+<td><p>スマートフォンアプリはADBを介して、AIユニットから最新の自転車位置情報を定期的に取得する</p></td>
+<td><p>設定された周期どおりに位置情報が取得されること</p>
+<p>ログが保存されること</p>
+</td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>警告発報処理</p></li>
+</ol>
+</td>
+<td><p><strong>条件：</strong></p>
+<p>スマートフォンが自転車の走行位置が歩道であることを検知する</p>
+<p><strong>動作：</strong></p>
+<p>スマートフォンは画面に警告メッセージを表示し、設定された内容で音声警告を発報する</p>
+</td>
+<td><p>アプリケーションは以下のルールに従って警告を発報する：</p>
+<img alt="_images/warning_notice.png" src="_images/warning_notice.png" />
+<p>具体例:</p>
+<p><strong>初期設定</strong></p>
+<p>Interval：0.5秒</p>
+<p>連続検知回数：3回</p>
+<p>通知間隔（2回の警告間の時間）：3秒</p>
+<p><strong>動作結果:</strong></p>
+<p>アプリ起動後、1.5秒および4.5秒のタイミングで音声警告が発報される</p>
+<p>7.5秒時点では音声は発報されない（直近の発報タイミングに最も近い3回分の状態のみを評価するため）</p>
+<p>4.5秒時点で自転車の状態が車道（緑）であり、その後の3回の位置情報が歩道（赤）の場合、6秒時点で音声警告が発報される</p>
+<p>ログが保存されること</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id16">
+<caption><span class="caption-text"><strong>External Flow</strong></span><a class="headerlink" href="#id16" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>手順</p></th>
+<th class="head"><p>内容</p></th>
+<th class="head"><p>受入条件</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>警告設定の更新</p></li>
+</ol>
+</td>
+<td><p>アプリケーションの設定画面を開く</p></td>
+<td><p>設定画面が正常に表示されること</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>「連続検知回数」の設定</p></li>
+</ol>
+</td>
+<td><p>歩道走行を連続して検知した回数に応じて警告を発報するための回数を入力する</p></td>
+<td><p>警告間隔は以下の式で決定される：</p>
+<p><code class="docutils literal notranslate"><span class="pre">位置検知間隔</span></code> × <code class="docutils literal notranslate"><span class="pre">連続検知回数</span></code></p>
+</td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="3">
+<li><p>「警告間隔」の設定</p></li>
+</ol>
+</td>
+<td><p>連続する警告発報の間隔時間を入力する</p></td>
+<td><p>本設定値は（<code class="docutils literal notranslate"><span class="pre">位置検知間隔</span></code> × <code class="docutils literal notranslate"><span class="pre">連続検知回数</span></code>）以上である必要がある。
+条件を満たさない場合、エラーを表示し保存不可とする</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="4">
+<li><p>警告表示内容の設定</p></li>
+</ol>
+</td>
+<td><p>警告時に画面に表示するテキストを入力する</p></td>
+<td><p>複数行入力を許可し、設定どおりに表示されること</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="5">
+<li><p>フォントおよび文字サイズの設定</p></li>
+</ol>
+</td>
+<td><p>指定されたフォント一覧から選択し、文字サイズを入力する</p></td>
+<td><p>選択したフォントおよびサイズでプレビューが表示されること</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="6">
+<li><p>警告表示時間の設定</p></li>
+</ol>
+</td>
+<td><p>警告表示時間（秒）を入力する</p></td>
+<td><p>表示時間は「警告間隔」より短い必要がある。
+条件を満たさない場合、エラーを表示し保存不可とする</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="fr-cl">
+<h3>FR-CL: 顔ぼかし処理<a class="headerlink" href="#fr-cl" title="Link to this heading"></a></h3>
+<section id="fr-cl-1">
+<h4>FR-CL-1: 画像処理<a class="headerlink" href="#fr-cl-1" title="Link to this heading"></a></h4>
+<table class="docutils align-default" id="id17">
+<caption><span class="caption-text"><strong>FR-CL-1</strong></span><a class="headerlink" href="#id17" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 60.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>項目</p></th>
+<th class="head"><p>内容</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>説明</p></td>
+<td><p>自転車の位置が変化（歩道／車道）した際、スマートフォンアプリはADBインターフェースを介してAIユニットから対応する画像を自動取得する</p>
+<p>Androidアプリは保存前に画像内の顔情報をぼかし処理する</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>入力</p></td>
+<td><p>デバイスのカメラから取得された画像</p></td>
+</tr>
+<tr class="row-even"><td><p>出力</p></td>
+<td><p>Androidアプリにより顔情報がぼかし処理された画像</p></td>
+</tr>
+<tr class="row-odd"><td><p>トリガー</p></td>
+<td><p>自転車の位置変化（歩道／車道）を検知した直後</p></td>
+</tr>
+<tr class="row-even"><td><p>前提条件</p></td>
+<td><p>デバイスに電源が供給されていること</p>
+<p>USB Type-C接続に対応し、ADBインターフェース経由でデータ取得が可能であること</p>
+<p>（他の接続方式をサポートする場合は、当該方式にも対応していること）</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>事後条件</p></td>
+<td><p>プログラムログが保存されること</p>
+<p>ぼかし処理済みの画像がストレージに保存されること</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id18">
+<caption><span class="caption-text"><strong>Business Flow</strong></span><a class="headerlink" href="#id18" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>手順</p></th>
+<th class="head"><p>内容</p></th>
+<th class="head"><p>受入条件</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>スマートフォンアプリによる画像取得</p></li>
+</ol>
+</td>
+<td><p>自転車の位置変化を検知した際、スマートフォンアプリはAIユニットから対応する画像（raw画像およびoverlay画像）を取得する</p></td>
+<td><p>すべての画像（raw画像および処理済みoverlay画像）が取得されること</p>
+<p>画像はデバイス上で暗号化されており、HBLAB製アプリのみが復号可能であること</p>
+</td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>画像の受信および保存</p></li>
+</ol>
+</td>
+<td><p>スマートフォンアプリが画像を受信し、ローカルストレージに保存する</p></td>
+<td><p>画像が正常に保存されること</p>
+<p>アプリケーションへ通知が送信されること</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fr-cl-2">
+<h4>FR-CL-2: 顔情報ぼかし処理<a class="headerlink" href="#fr-cl-2" title="Link to this heading"></a></h4>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-text"><strong>FR-CL-2</strong></span><a class="headerlink" href="#id19" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 60.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>項目</p></th>
+<th class="head"><p>内容</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>説明</p></td>
+<td><p>スマートフォンアプリにおいて、画像内の個人を特定可能な情報（通行人の顔など）を検出し、法令遵守のためにぼかし処理を行う</p></td>
+</tr>
+<tr class="row-odd"><td><p>入力</p></td>
+<td><p>AIユニットから取得した暗号化画像（スマートフォンアプリにより取得・復号された画像）</p></td>
+</tr>
+<tr class="row-even"><td><p>出力</p></td>
+<td><p>通行人の顔情報がぼかし処理された画像</p></td>
+</tr>
+<tr class="row-odd"><td><p>トリガー</p></td>
+<td><p>スマートフォンアプリがAIユニットから画像を取得した直後</p></td>
+</tr>
+<tr class="row-even"><td><p>前提条件</p></td>
+<td><p>デバイスから画像を受信していること</p></td>
+</tr>
+<tr class="row-odd"><td><p>事後条件</p></td>
+<td><p>プログラムログが保存されること</p>
+<p>ぼかし処理済み画像がローカルストレージに保存されること</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id20">
+<caption><span class="caption-text"><strong>Business Flow</strong></span><a class="headerlink" href="#id20" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>手順</p></th>
+<th class="head"><p>内容</p></th>
+<th class="head"><p>受入条件</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>顔検出</p></li>
+</ol>
+</td>
+<td><p>Androidアプリ上で画像内の通行人の顔を検出する</p></td>
+<td><p>画像内のすべての顔が検出されること</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>顔ぼかし処理</p></li>
+</ol>
+</td>
+<td><p>検出された顔領域に対してぼかし処理を行う</p></td>
+<td><p>個人が特定できないレベルまで十分にぼかし処理が行われること</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="3">
+<li><p>画像保存</p></li>
+</ol>
+</td>
+<td><p>ぼかし処理済み画像を保存する</p></td>
+<td><p>raw画像およびoverlay画像をローカルストレージに保存すること</p>
+<p>スマートフォンのギャラリーには保存されないこと</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="fr-cc">
+<h3>FR-CC: 接続状態確認<a class="headerlink" href="#fr-cc" title="Link to this heading"></a></h3>
+<table class="docutils align-default" id="id21">
+<caption><span class="caption-text"><strong>FR-CC</strong></span><a class="headerlink" href="#id21" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 60.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>項目</p></th>
+<th class="head"><p>内容</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>説明</p></td>
+<td><p>デバイスとスマートフォン間の接続状態を確認し、その状態（接続／未接続）を通知可能とする</p></td>
+</tr>
+<tr class="row-odd"><td><p>入力</p></td>
+<td><p>接続状態情報</p></td>
+</tr>
+<tr class="row-even"><td><p>出力</p></td>
+<td><p>接続／未接続のステータス表示</p></td>
+</tr>
+<tr class="row-odd"><td><p>前提条件</p></td>
+<td><p>デバイスに電源が供給されていること</p>
+<p>AIユニットがUSB Type-Cポートを備えており、Android端末とADBインターフェースを介して接続可能であること</p>
+<p>（他のポートをサポートする場合は、AIユニット側も当該ポートに対応していること）</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>事後条件</p></td>
+<td><p>プログラムログが保存されること</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id22">
+<caption><span class="caption-text"><strong>Business Flow</strong></span><a class="headerlink" href="#id22" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>手順</p></th>
+<th class="head"><p>内容</p></th>
+<th class="head"><p>受入条件</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>アプリ起動</p></li>
+</ol>
+</td>
+<td><p>アプリケーションを起動する</p></td>
+<td><p>スマートフォンがデバイスと未接続状態であることが表示されること</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>デバイス接続</p></li>
+</ol>
+</td>
+<td><p>USBケーブルにより物理接続を行う</p></td>
+<td><p>アプリケーション上に接続状態（接続済み）が表示されること</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="3">
+<li><p>接続解除</p></li>
+</ol>
+</td>
+<td><p>USBケーブルを抜き、物理接続を解除する</p></td>
+<td><p>アプリケーション上に接続状態（未接続）が表示されること</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id7">
+<h2>非機能要件<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<p>Phase1に準拠する：</p>
+<ul class="simple">
+<li><p>mIoU：70％</p></li>
+<li><p>精度（Accuracy）：70％</p></li>
+</ul>
+</section>
+<section id="id8">
+<h2>付録<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
+<p>設定ファイル</p>
+<table class="docutils align-default" id="id23">
+<caption><span class="caption-text"><strong>Config Parameters</strong></span><a class="headerlink" href="#id23" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 33.3%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>キー</p></th>
+<th class="head"><p>説明</p></th>
+<th class="head"><p>値</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mode</span></code></p></td>
+<td><p>アプリケーションの起動モードを指定する</p></td>
+<td><p>データ型：String</p>
+<p><code class="docutils literal notranslate"><span class="pre">paused</span></code>：アプリケーションは一時停止状態となり、画像取得を行わない</p>
+<p><code class="docutils literal notranslate"><span class="pre">running</span></code>：アプリケーションは通常動作する</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">processing_mode</span></code></p></td>
+<td><p>動作モードを指定する</p></td>
+<td><p>データ型：String</p>
+<p><code class="docutils literal notranslate"><span class="pre">capture-segment</span></code>：画像取得および解析を行う通常モード</p>
+<p><code class="docutils literal notranslate"><span class="pre">capture-only</span></code>：画像取得のみを行い、解析は行わない</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">interval</span></code></p></td>
+<td><p>連続する2回の画像取得間隔。アプリケーション実行中でも変更可能であり、再起動は不要とする</p></td>
+<td><p>データ型：Float（単位：秒）</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model_path</span></code></p></td>
+<td><p>AIモデルが格納されているディレクトリパス</p></td>
+<td><p>データ型：String</p>
+<p>例：”/userdata/models/ddrnet_rk1808.rknn”</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">base_dir</span></code></p></td>
+<td><p>画像保存先ディレクトリのパス</p></td>
+<td><p>データ型：String</p>
+<p>例：”/userdata/captures”</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to the documentation of the SRS for the project!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="UIUX.html" class="btn btn-neutral float-right" title="UX/UI Design" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright workshop participant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
