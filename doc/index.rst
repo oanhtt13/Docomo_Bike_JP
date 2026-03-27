@@ -7,7 +7,5 @@ Welcome to the documentation of the SRS for the project!
    :caption: Contents:
 
    SRS_Doc.rst
-   HLD_Doc
    UIUX.rst
    HLD_doc_phase2.md
-   User_Manual.md
