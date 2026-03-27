@@ -2,11 +2,17 @@
 ## 目次
 
 [1. 概要](#1-tổng-quan)
+
 [2. FR-CC: Connection Checking/接続確認](#2-fr-cc--kiểm-tra-kết-nối)
+
 [3. FR-DA: Device Application/デバイスアプリケーション](#3-fr-da--device-application)
+
 [4. FR-LW: Location Warning/位置に基づく警告発報](#4-fr-lw--phát-cảnh-báo-vị-trí)
+
 [5. FR-CL: Clear Sensitive Info/機微画像の処理](#5-fr-cl--xử-lý-ảnh-nhạy-cảm)
+
 [6. 方法論](#6-phương-pháp-luận)
+
 ## 1. 概要
 
 Bike Camera SegmentationプロジェクトのPhase 2では、4つの主要機能を追加しており、それぞれが個別のFunctional Requirement（FR）として定義されています：
