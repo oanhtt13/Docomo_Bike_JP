@@ -133,3 +133,16 @@ Error Notification
    :alt: config
    :width: 400px
    :align: center
+
+Delete Feature
+------------------------
+
+.. image:: img/delete1.png
+   :alt: config
+   :width: 400px
+   :align: center
+
+.. image:: img/delete2.png
+   :alt: config
+   :width: 400px
+   :align: center

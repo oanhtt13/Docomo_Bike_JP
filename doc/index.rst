@@ -9,3 +9,4 @@ Welcome to the documentation of the SRS for the project!
    SRS_Doc.rst
    HLD_Doc
    UIUX.rst
+   HLD_doc_phase2.md
