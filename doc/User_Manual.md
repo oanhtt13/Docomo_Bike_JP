@@ -19,13 +19,13 @@
 **Step 1:**
 GitLab上でプロジェクトを開き、[Phase2](https://git.hblab.vn/rnd/pro-1769-bike-camera-segmentation/-/tree/phase2?ref_type=heads)ブランチに切り替えます
 
-![Select branch phase2](Document/img/README/phase2.png)
+![Select branch phase2](img/README/phase2.png)
 
 **Step 2:** **Code を選択**
 
 **Step 3:** zip を選択してソースコードをPCにダウンロード
 
-![Download zip file](Document/img/README/download.png)
+![Download zip file](img/README/download.png)
 
 ## クイックスタート
 
@@ -118,7 +118,7 @@ PCにあるツールを使用して、ダウンロードしたファイルを解
 
 解凍後のフォルダ構成:
 
-![Folder Structure](Document/img/Folder_structure.png)
+![Folder Structure](img/Folder_structure.png)
 
 |ファイル/フォルダ名|説明|
 |-|-|
@@ -142,11 +142,11 @@ adb devices
 
 * 接続失敗の場合:
 
-![fail_connect_device](Document/img/fail_connect_device.png)
+![fail_connect_device](img/fail_connect_device.png)
 
 * 接続成功の場合:
 
-![Success_connect](Document/img/success_connect.png)
+![Success_connect](img/success_connect.png)
 
 #### 4. アプリのインストール
 
@@ -205,7 +205,7 @@ pull後、`captures`フォルダ内に `captures1`, `captures2`, ... が作成�
 
 1. `decrypt_images.exe` をダブルクリックするとCMDウィンドウが表示されます  
 
-![HBLAB_Decryption](Document/img/hblab_decryption.png)
+![HBLAB_Decryption](img/hblab_decryption.png)
 
 2. フォルダパスを入力（例） 
 
@@ -270,17 +270,17 @@ apkファイルをダウンロード後、ファイルをタップします。
 
 `INSTALL` を選択  
 
-![Install Notice](Document/img/Install_1.png)
+![Install Notice](img/Install_1.png)
 
 画面の指示に従って操作  
 
-![Install Notice](Document/img/Install_2.png)
+![Install Notice](img/Install_2.png)
 
 apkファイルは自動的にインストールされます。
 
 アプリがスマートフォン内のファイルへアクセスできるよう、権限を付与してください  
 
-![Install](Document/img/Install_3.png)
+![Install](img/Install_3.png)
 
 ### システム利用ガイド
 
@@ -289,7 +289,7 @@ apkファイルは自動的にインストールされます。
 * AI Unit用アプリをインストール後、デバイスに電源が供給されるとアプリは自動的に起動します。
 * アプリインストール後、ユーザーはアプリを起動します。  
 
-![Open app](Document/img/2203.png)
+![Open app](img/2203.png)
 
 #### 利用手順
 
@@ -297,11 +297,11 @@ apkファイルは自動的にインストールされます。
 
 通知が表示されたら、`OK` を選択します。  
 
-![Accept connect](Document/img/aceppt_1.png)
+![Accept connect](img/aceppt_1.png)
 
 スマートフォンとアプリの接続が成功すると、USB接続およびADB接続の情報がアプリのホーム画面に表示されます。
 
-![Connect success](Document/img/2202.png)
+![Connect success](img/2202.png)
 
 #### 設定ガイド
 
@@ -309,11 +309,11 @@ apkファイルは自動的にインストールされます。
 
 スマートフォンアプリ画面の ⚙️ を選択します。  
 
-![Setting_sceen](Document/img/Change\_setting.png)
+![Setting_sceen](img/Change\_setting.png)
 
 アプリの設定画面
 
-![Setting_1](Document/img/2859.png) ![Setting_2](Document/img/2880.png) ![Setting_3](Document/img/2902.png)
+![Setting_1](img/2859.png) ![Setting_2](img/2880.png) ![Setting_3](img/2902.png)
 
 |No|内容|値|
 |-|-|-|
@@ -334,16 +334,7 @@ apkファイルは自動的にインストールされます。
 
 スマートフォンアプリが警告を発する際、同時に画面にも通知が表示されます
 
-![error_notice](Document/img/2705.png)
-
-## インストールおよび使用詳細
-
-以下の資料をご参照ください:
-
-* Vietnamese: [HLD\_Document\_VN](Document/HLD_Doc.md)
-* Japan: [HLD\_Document\_JP](Document/HLD_Doc_JP.md)
-
-今週中にHLDの詳細資料を更新する予定です。
+![error_notice](img/2705.png)
 
 
 
